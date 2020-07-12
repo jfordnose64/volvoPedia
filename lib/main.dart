@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:volvoPedia/Views/item.dart';
 
 void main() {
   runApp(MyApp());
@@ -9,77 +10,49 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.deepOrange,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      home: MyHomePage(title: 'VolvoPedia'),
+      title: 'Named Routes Demo',
+      // Start the app with the "/" named route. In this case, the app starts
+      // on the FirstScreen widget.
+      initialRoute: '/',
+      routes: {
+        // When navigating to the "/" route, build the FirstScreen widget.
+        '/': (context) => FirstScreen(),
+        // When navigating to the "/second" route, build the SecondScreen widget.
+        '/second': (context) => SecondScreen(),
+        // '/item': (context) => Item()
+      },
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
-  final String title;
-
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
+class FirstScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Drawer'),
+        title: Text('First Screen'),
       ),
-      body: Center(child: Text('Drawer 1')),
-      drawer: Drawer(
-          child: ListView(padding: EdgeInsets.zero, children: <Widget>[
-        DrawerHeader(
-          child: Text('Volvo Models'),
-          decoration: BoxDecoration(
-            color: Colors.deepOrange,
-          ),
-        ),
-        ListTile(
-          title: Text('Volvo 240'),
-          onTap: () {
-            // Update the state of the app
-            // ...
-            // Then close the drawer
-            Navigator.pop(context);
+      body: Center(
+        child: RaisedButton(
+          child: Text('Launch screen'),
+          onPressed: () {
+            // Navigate to the second screen using a named route.
+            Navigator.pushNamed(context, '/second');
           },
         ),
-        ListTile(
-          title: Text('Volvo 740'),
-          onTap: () {
-            // Update the state of the app
-            // ...
-            // Then close the drawer
-            Navigator.pop(context);
-          },
-        ),
-        ListTile(
-          title: Text('Volvo 940'),
-          onTap: () {
-            // Update the state of the app
-            // ...
-            // Then close the drawer
-            Navigator.pop(context);
-          },
-        ),
-        ListTile(
-          title: Text('Volvo 940'),
-          onTap: () {
-            // Update the state of the app
-            // ...
-            // Then close the drawer
-            Navigator.pop(context);
-          },
-        ),
-      ])),
+      ),
+    );
+  }
+}
+
+class SecondScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Second Screen"),
+      ),
+      body: Center(),
     );
   }
 }
