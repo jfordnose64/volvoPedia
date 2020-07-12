@@ -70,6 +70,15 @@ class _MyHomePageState extends State<MyHomePage> {
             Navigator.pop(context);
           },
         ),
+        ListTile(
+          title: Text('Volvo 940'),
+          onTap: () {
+            // Update the state of the app
+            // ...
+            // Then close the drawer
+            Navigator.pop(context);
+          },
+        ),
       ])),
     );
   }
