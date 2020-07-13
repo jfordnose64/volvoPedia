@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
         '/': (context) => FirstScreen(),
         // When navigating to the "/second" route, build the SecondScreen widget.
         '/second': (context) => SecondScreen(),
-        // '/item': (context) => Item()
+        '/item': (context) => Item()
       },
     );
   }
