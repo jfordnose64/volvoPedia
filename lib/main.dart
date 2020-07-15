@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:volvoPedia/Views/home.dart';
 import 'package:volvoPedia/Views/item.dart';
+import 'package:volvoPedia/Views/models.dart';
+import 'package:volvoPedia/app.dart';
 
 void main() {
   runApp(MyApp());
@@ -11,16 +14,26 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Named Routes Demo',
-      // Start the app with the "/" named route. In this case, the app starts
-      // on the FirstScreen widget.
       initialRoute: '/',
       routes: {
-        // When navigating to the "/" route, build the FirstScreen widget.
-        '/': (context) => FirstScreen(),
-        // When navigating to the "/second" route, build the SecondScreen widget.
+        '/': (context) => App(),
         '/second': (context) => SecondScreen(),
-        '/item': (context) => Item()
+        '/home': (context) => Home(),
+        '/models': (context) => Models()
       },
+      theme: ThemeData(
+          // This is the theme of your application.
+          //
+          // Try running your application with "flutter run". You'll see the
+          // application has a blue toolbar. Then, without quitting the app, try
+          // changing the primarySwatch below to Colors.green and then invoke
+          // "hot reload" (press "r" in the console where you ran "flutter run",
+          // or simply save your changes to "hot reload" in a Flutter IDE).
+          // Notice that the counter didn't reset back to zero; the application
+          // is not restarted.
+          primarySwatch: Colors.blueGrey,
+          brightness: Brightness.light,
+          primaryColor: Colors.grey),
     );
   }
 }
@@ -33,11 +46,15 @@ class FirstScreen extends StatelessWidget {
         title: Text('First Screen'),
       ),
       body: Center(
+        // children: <Widget> [
+        //   Text: ('Hello')
+        // ],
         child: RaisedButton(
-          child: Text('Launch screen'),
+          child: Text('Volvo screen'),
           onPressed: () {
-            // Navigate to the second screen using a named route.
-            Navigator.pushNamed(context, '/second');
+            // Navigate to the second screen when tapped.
+            Navigator.pushNamed(context, '/home');
+            //pushnamed is used to push to a named route
           },
         ),
       ),
@@ -52,7 +69,9 @@ class SecondScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text("Second Screen"),
       ),
-      body: Center(),
+      body: Center(
+        child: Text('Second Page'),
+      ),
     );
   }
 }
