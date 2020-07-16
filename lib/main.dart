@@ -42,9 +42,8 @@ class FirstScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('First Screen'),
-      ),
+      appBar:
+          AppBar(title: Text('First Screen'), backgroundColor: Colors.blueGrey),
       body: Center(
         // children: <Widget> [
         //   Text: ('Hello')
