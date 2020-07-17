@@ -21,7 +21,7 @@ class ModelState extends State<Models> {
         ButtonBar(
           children: <Widget>[
             FlatButton(
-              child: const Text('Learn More'),
+              child: const Text('Learn less'),
               onPressed: () {/* ... */},
             )
           ],
